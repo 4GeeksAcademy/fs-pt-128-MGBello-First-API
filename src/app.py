@@ -27,7 +27,7 @@ def add_new_todo():
 
 @app.route('/todos/<int:position>', methods=['DELETE'])
 def delete_todo(position):
-    if len(todos) > position:
+    if len(todos) > position and position >=0:
         todos.pop(position)
         return jsonify(todos), 200
     return jsonify(f'Error: la posicion {position}, no existe '), 404
